@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Sadhana 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      overflow-x: hidden;
+      color: white;
+      text-align: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      padding: 40px 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .heart {
+      position: fixed;
+      color: rgba(255,255,255,0.8);
+      font-size: 20px;
+      animation: float 6s linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4rem;
+      margin-top: 30px;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px white;
+      }
+      to {
+        text-shadow: 0 0 25px #ff4d88;
+      }
+    }
+
+    .subtitle {
+      font-size: 1.3rem;
+      margin-top: 15px;
+      opacity: 0.95;
+    }
+
+    .photo-frame {
+      margin: 35px auto;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      border: 6px solid rgba(255,255,255,0.8);
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(255,255,255,0.5);
+      animation: pulse 3s infinite;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .message {
+      max-width: 700px;
+      margin: 30px auto;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      padding: 25px;
+      border-radius: 20px;
+      line-height: 1.8;
+      font-size: 1.1rem;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .countdown {
+      margin-top: 30px;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 28px;
+      border-radius: 50px;
+      background: white;
+      color: #ff4d88;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.3s ease;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+
+    .btn:hover {
+      transform: scale(1.08);
+      background: #ffe6ee;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding-bottom: 20px;
+      opacity: 0.9;
+    }
+
+    audio {
+      margin-top: 25px;
+      width: 260px;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 3rem;
+      }
+
+      .message {
+        font-size: 1rem;
+      }
+
+      .photo-frame {
+        width: 210px;
+        height: 210px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Happy Birthday Sadhana 💖</h1>
+    <p class="subtitle">6 July — A special day for a truly special girl ✨</p>
+
+    <div class="photo-frame">
+      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop" alt="Sadhana Photo">
+    </div>
+
+    <div class="message">
+      Dear Sadhana,<br><br>
+      Today is all about your smile, your happiness, and the beautiful energy you bring into every moment. 🌸
+      <br><br>
+      I hope this birthday becomes one of your sweetest memories. May your dreams grow bigger, your smile shine brighter, and your heart always stay happy.
+      <br><br>
+      Thank you for being such an amazing person. ✨
+      <br><br>
+      Once again — Happy Birthday 🎂💫
+    </div>
+
+    <div class="countdown" id="countdown"></div>
+
+    <audio controls autoplay loop>
+      <source src="YOUR-MUSIC-LINK.mp3" type="audio/mpeg">
+    </audio>
+
+    <br>
+    <a class="btn" href="#">Forever Special 💕</a>
+
+    <footer>
+      Made with care for Sadhana ❤️
+    </footer>
+  </div>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '💖';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = Math.random() * 20 + 15 + 'px';
+      heart.style.animationDuration = Math.random() * 3 + 4 + 's';
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 7000);
+    }
+
+    setInterval(createHeart, 300);
+
+    const birthday = new Date('July 6, 2026 00:00:00').getTime();
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = birthday - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById('countdown').innerHTML =
+        `🎉 Countdown: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+      if (distance < 0) {
+        clearInterval(timer);
+        document.getElementById('countdown').innerHTML = '🎂 Happy Birthday Sadhana 💖';
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>

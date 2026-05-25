@@ -1,234 +1,253 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday Sadhana 💖</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Sadhana 💖</title>
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
-      overflow-x: hidden;
-      color: white;
-      text-align: center;
-      min-height: 100vh;
-    }
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-    .container {
-      padding: 40px 20px;
-      position: relative;
-      z-index: 2;
-    }
+body{
+font-family:Arial, sans-serif;
+overflow:hidden;
+background:linear-gradient(135deg,#ff9eb5,#ffcce0);
+height:100vh;
+color:white;
+text-align:center;
+}
 
-    .heart {
-      position: fixed;
-      color: rgba(255,255,255,0.8);
-      font-size: 20px;
-      animation: float 6s linear infinite;
-      z-index: 1;
-    }
+.screen{
+position:absolute;
+width:100%;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+padding:20px;
+transition:1s;
+}
 
-    @keyframes float {
-      0% {
-        transform: translateY(100vh) scale(0.5);
-        opacity: 0;
-      }
-      20% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-10vh) scale(1.2);
-        opacity: 0;
-      }
-    }
+.hidden{
+opacity:0;
+pointer-events:none;
+}
 
-    h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 4rem;
-      margin-top: 30px;
-      animation: glow 2s infinite alternate;
-    }
+h1{
+font-size:3rem;
+margin-bottom:20px;
+text-shadow:0 0 15px white;
+}
 
-    @keyframes glow {
-      from {
-        text-shadow: 0 0 10px white;
-      }
-      to {
-        text-shadow: 0 0 25px #ff4d88;
-      }
-    }
+.question-box{
+background:rgba(255,255,255,0.15);
+padding:30px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+box-shadow:0 0 20px rgba(255,255,255,0.3);
+width:90%;
+max-width:400px;
+}
 
-    .subtitle {
-      font-size: 1.3rem;
-      margin-top: 15px;
-      opacity: 0.95;
-    }
+input{
+padding:12px;
+width:80%;
+border:none;
+border-radius:30px;
+margin-top:15px;
+font-size:1rem;
+text-align:center;
+}
 
-    .photo-frame {
-      margin: 35px auto;
-      width: 250px;
-      height: 250px;
-      border-radius: 50%;
-      border: 6px solid rgba(255,255,255,0.8);
-      overflow: hidden;
-      box-shadow: 0 0 30px rgba(255,255,255,0.5);
-      animation: pulse 3s infinite;
-    }
+button{
+margin-top:20px;
+padding:12px 25px;
+border:none;
+border-radius:30px;
+background:white;
+color:#ff4081;
+font-size:1rem;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
 
-    .photo-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+button:hover{
+transform:scale(1.1);
+}
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
+.slideshow{
+width:280px;
+height:420px;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 0 30px rgba(255,255,255,0.5);
+margin-top:20px;
+}
 
-    .message {
-      max-width: 700px;
-      margin: 30px auto;
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(8px);
-      padding: 25px;
-      border-radius: 20px;
-      line-height: 1.8;
-      font-size: 1.1rem;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    }
+.slideshow img{
+width:100%;
+height:100%;
+object-fit:cover;
+position:absolute;
+opacity:0;
+animation:slideShow 20s infinite;
+border-radius:20px;
+}
 
-    .countdown {
-      margin-top: 30px;
-      font-size: 1.4rem;
-      font-weight: 600;
-    }
+.slideshow img:nth-child(1){animation-delay:0s;}
+.slideshow img:nth-child(2){animation-delay:5s;}
+.slideshow img:nth-child(3){animation-delay:10s;}
+.slideshow img:nth-child(4){animation-delay:15s;}
 
-    .btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 14px 28px;
-      border-radius: 50px;
-      background: white;
-      color: #ff4d88;
-      text-decoration: none;
-      font-weight: 700;
-      transition: 0.3s ease;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-    }
+@keyframes slideShow{
+0%{opacity:0;}
+10%{opacity:1;}
+25%{opacity:1;}
+35%{opacity:0;}
+100%{opacity:0;}
+}
 
-    .btn:hover {
-      transform: scale(1.08);
-      background: #ffe6ee;
-    }
+.heart{
+position:absolute;
+font-size:20px;
+animation:float 5s linear infinite;
+opacity:0.8;
+}
 
-    footer {
-      margin-top: 60px;
-      padding-bottom: 20px;
-      opacity: 0.9;
-    }
+@keyframes float{
+0%{
+transform:translateY(100vh) scale(0.5);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+100%{
+transform:translateY(-10vh) scale(1.5);
+opacity:0;
+}
+}
 
-    audio {
-      margin-top: 25px;
-      width: 260px;
-    }
+.message{
+margin-top:25px;
+max-width:700px;
+font-size:1.2rem;
+line-height:1.8;
+padding:20px;
+background:rgba(255,255,255,0.15);
+border-radius:20px;
+backdrop-filter:blur(10px);
+}
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 3rem;
-      }
+.glow{
+animation:glow 2s infinite alternate;
+}
 
-      .message {
-        font-size: 1rem;
-      }
-
-      .photo-frame {
-        width: 210px;
-        height: 210px;
-      }
-    }
-  </style>
+@keyframes glow{
+from{
+text-shadow:0 0 10px white;
+}
+to{
+text-shadow:0 0 30px #ff4081;
+}
+}
+</style>
 </head>
+
 <body>
 
-  <div class="container">
-    <h1>Happy Birthday Sadhana 💖</h1>
-    <p class="subtitle">6 July — A special day for a truly special girl ✨</p>
+<div class="screen" id="screen1">
+<div class="question-box">
+<h1>Hey Princess 💖</h1>
+<h2>Who is the cutest girl?</h2>
+<input type="text" id="answer1" placeholder="Type here">
+<br>
+<button onclick="nextQuestion()">Next</button>
+</div>
+</div>
 
-    <div class="photo-frame">
-      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop" alt="Sadhana Photo">
-    </div>
+<div class="screen hidden" id="screen2">
+<div class="question-box">
+<h2>Who loves you most? 💕</h2>
+<input type="text" id="answer2" placeholder="Type here">
+<br>
+<button onclick="showBirthday()">Unlock Surprise ✨</button>
+</div>
+</div>
 
-    <div class="message">
-      Dear Sadhana,<br><br>
-      Today is all about your smile, your happiness, and the beautiful energy you bring into every moment. 🌸
-      <br><br>
-      I hope this birthday becomes one of your sweetest memories. May your dreams grow bigger, your smile shine brighter, and your heart always stay happy.
-      <br><br>
-      Thank you for being such an amazing person. ✨
-      <br><br>
-      Once again — Happy Birthday 🎂💫
-    </div>
+<div class="screen hidden" id="mainScreen">
 
-    <div class="countdown" id="countdown"></div>
+<h1 class="glow">Happy Birthday Sadhana 🎂💖</h1>
 
-    <audio controls autoplay loop>
-      <source src="YOUR-MUSIC-LINK.mp3" type="audio/mpeg">
-    </audio>
+<div class="slideshow">
+<img src="PHOTO1.jpg">
+<img src="PHOTO2.jpg">
+<img src="PHOTO3.jpg">
+<img src="PHOTO4.jpg">
+</div>
 
-    <br>
-    <a class="btn" href="#">Forever Special 💕</a>
+<div class="message">
+Dear Sadhana 💖<br><br>
 
-    <footer>
-      Made with care for Sadhana ❤️
-    </footer>
-  </div>
+You are one of the most beautiful parts of my life ✨  
+Your smile, your care, your presence makes everything feel special 🌸  
+I hope this birthday brings you happiness, love, peace and lots of beautiful memories 🎂💕
 
-  <script>
-    function createHeart() {
-      const heart = document.createElement('div');
-      heart.classList.add('heart');
-      heart.innerHTML = '💖';
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.fontSize = Math.random() * 20 + 15 + 'px';
-      heart.style.animationDuration = Math.random() * 3 + 4 + 's';
-      document.body.appendChild(heart);
+And remember...  
+No matter what happens, you will always stay special for your littu 💌✨
 
-      setTimeout(() => {
-        heart.remove();
-      }, 7000);
-    }
+<br><br>
+Happy Birthday Once Again Princess 💖
+</div>
 
-    setInterval(createHeart, 300);
+</div>
 
-    const birthday = new Date('July 6, 2026 00:00:00').getTime();
+<script>
+function nextQuestion(){
+document.getElementById("screen1").classList.add("hidden");
+document.getElementById("screen2").classList.remove("hidden");
+}
 
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = birthday - now;
+function showBirthday(){
+let ans=document.getElementById("answer2").value.toLowerCase();
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+if(ans=="littu"){
+document.getElementById("screen2").classList.add("hidden");
+document.getElementById("mainScreen").classList.remove("hidden");
 
-      document.getElementById('countdown').innerHTML =
-        `🎉 Countdown: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+for(let i=0;i<80;i++){
+createHeart();
+}
+}
+else{
+alert("Wrong answer 😄💖");
+}
+}
 
-      if (distance < 0) {
-        clearInterval(timer);
-        document.getElementById('countdown').innerHTML = '🎂 Happy Birthday Sadhana 💖';
-      }
-    }, 1000);
-  </script>
+function createHeart(){
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="💖";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*20+15)+"px";
+heart.style.animationDuration=(Math.random()*3+3)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+}
+</script>
 
 </body>
 </html>
+```
+
